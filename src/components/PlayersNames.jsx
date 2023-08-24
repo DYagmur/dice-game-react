@@ -17,7 +17,7 @@ const PlayersNames = ({ onChange }) => {
     <div className="players-names">
       <input type="text" name="player1" placeholder="Player 1" value={player1} onChange={handleInputChange} />
       <input type="text" name="player2" placeholder="Player 2" value={player2} onChange={handleInputChange} />
-      <button onClick={() => onChange(player1, player2)}>Start Game</button>
+      <button className='rounded-full bg-yellow-500 hover:bg-yellow-600 px-8 py-4 text-black' onClick={() => onChange(player1, player2)}>Start Game</button>
     </div>
   );
 };

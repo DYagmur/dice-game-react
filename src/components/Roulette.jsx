@@ -1,8 +1,13 @@
+<<<<<<< HEAD
+import './Roulette.css'
+=======
 
 import '../styles/Roulette.css'
 
 import {Button} from './Button';
+>>>>>>> master
 import {Wheel} from './Wheel';
+import {Button} from './Button';
 import {Input} from "./Input";
 import {useState} from "react";
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import Game from './Game.jsx';
-import { Roulette } from './Roulette.jsx';
+import Game from './Game';
+import { Roulette } from './Roulette';
 import { Routes, Route, Link } from "react-router-dom"
 import Login from './Login.jsx';
 

@@ -5,16 +5,11 @@ import "./App.css";
 
 function App() {
   return (
-    
-    <section >
-      <div className="fancybigborder w-full rounded-md relative bg-[#12191c] mainContainer">
+    <>
         <Header />
         <Main />
         <Footer />
-      </div>
-    </section>
-
-
+    </>
   );
 }
 

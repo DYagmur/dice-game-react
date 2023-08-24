@@ -1,62 +1,56 @@
-// Game.jsx
 import React, { useState } from 'react';
 import Dice from './Dice';
 import PlayersNames from './PlayersNames';
 import './Game.css';
+import calculateWinner from './calculateWinner';
 
 const Game = () => {
   const [player1, setPlayer1] = useState('');
   const [player2, setPlayer2] = useState('');
   const [dice1, setDice1] = useState(1);
   const [dice2, setDice2] = useState(1);
-  const [scores, setScores] = useState({ [player1]: 0, [player2]: 0 });
+  const [scores, setScores] = useState({});
 
   const rollDice = async () => {
     try {
-      const response = await fetch('http://localhost:8000/index', {
+      const response = await fetch('http://localhost:8000/duygu', {
         method: 'GET',
         headers: {
-          task: 'index',
-        },
+          "task": 'duygu'
+        }
       });
-
-      if (!response.ok) {
-        throw new Error('Rolling dice failed.');
-      }
-
+  
       const data = await response.json();
-
-      const randomNumber1 = data.roll.randomNumber1;
-      const randomNumber2 = data.roll.randomNumber2;
-
+  
+      const randomNumber1 = data.heightNode;
+      const randomNumber2 = data.startPoint;
+  
       setDice1(randomNumber1);
       setDice2(randomNumber2);
-
+  
       const winner = calculateWinner(randomNumber1, randomNumber2);
-
+  
       if (winner === player1) {
         setScores((prevScores) => ({
           ...prevScores,
-          [player1]: prevScores[player1] + 1,
+          [player1]: (prevScores[player1] || 0) + 1,
         }));
       } else if (winner === player2) {
         setScores((prevScores) => ({
           ...prevScores,
-          [player2]: prevScores[player2] + 1,
+          [player2]: (prevScores[player2] || 0) + 1,
         }));
       }
     } catch (error) {
       console.error('Error:', error.message);
     }
   };
-
-  const calculateWinner = (num1, num2) => {
-    return num1 > num2 ? player1 : num2 > num1 ? player2 : 'draw';
-  };
+  
 
   const handleStartGame = (name1, name2) => {
     setPlayer1(name1);
     setPlayer2(name2);
+    setScores({ [name1]: 0, [name2]: 0 });
   };
 
   return (

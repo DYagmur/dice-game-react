@@ -41,7 +41,7 @@ export function Login () {
           console.log(result);
           getUserData();
         } else {
-          
+          alert('Wrong Information');
         }
       });       
     };
@@ -58,7 +58,6 @@ export function Login () {
         changeAccountInfo('nickname', result.currentUser.nickname);
         changeAccountInfo('balance', result.currentUser.balance);
         changeAccountInfo('ticket', result.currentUser.ticket);
-        
       })
     };
 

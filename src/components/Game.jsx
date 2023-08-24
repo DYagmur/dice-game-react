@@ -10,14 +10,6 @@ const Game = () => {
   const [dice2, setDice2] = useState(1);
   const [scores, setScores] = useState({}); // Initial scores state
 
-  // Function to update scores based on winner
-  const updateScores = (winner) => {
-    setScores((prevScores) => ({
-      ...prevScores,
-      [winner]: (prevScores[winner] || 0) + 1, // Increment winner's score
-    }));
-  };
-
   const rollDice = async () => {
     try {
       const response = await fetch('http://localhost:8000/duygu', {
@@ -33,18 +25,28 @@ const Game = () => {
 
       const data = await response.json();
 
-      const randomNumber1 = data.roll.randomNumber1;
-      const randomNumber2 = data.roll.randomNumber2;
+      if (data.roll && data.roll.randomNumber1 && data.roll.randomNumber2 && data.result) {
+        const randomNumber1 = data.roll.randomNumber1;
+        const randomNumber2 = data.roll.randomNumber2;
 
-      setDice1(randomNumber1);
-      setDice2(randomNumber2);
+        setDice1(randomNumber1);
+        setDice2(randomNumber2);
 
-      const winner = data.result; // Assuming the server is sending the winner
-
-      updateScores(winner); // Update scores based on the winner
+        const roundWinner = randomNumber1 > randomNumber2 ? player1 : player2;
+        updateScores(roundWinner); // Update scores based on the round winner
+      } else {
+        console.error('Data from the server is incomplete or invalid.');
+      }
     } catch (error) {
       console.error('Error:', error.message);
     }
+  };
+
+  const updateScores = (winner) => {
+    setScores((prevScores) => ({
+      ...prevScores,
+      [winner]: (prevScores[winner] || 0) + 1,
+    }));
   };
 
   const handleStartGame = (name1, name2) => {
@@ -55,7 +57,7 @@ const Game = () => {
 
   return (
     <div className="game">
-      <h1 classname="title">🎲 Take a Chance!  🎲</h1>
+      <h1 className="title">🎲 Take a Chance!  🎲</h1>
       <PlayersNames onChange={handleStartGame} />
       <div className="players">
         <p className="player">{player1}</p>

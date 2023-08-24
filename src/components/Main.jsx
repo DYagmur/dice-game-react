@@ -8,7 +8,7 @@ import Login from './Login.jsx';
 export function Main() {
     return(        
         <>
-            <Login />
+            
             <Routes>
                 <Route path="login" element={ <Login/> } />
                 <Route path="dice" element={ <Game/> } />

@@ -1,4 +1,5 @@
 body {
+<<<<<<< HEAD
     margin: 0;
     background: #1B1B21;
   }
@@ -33,3 +34,39 @@ body {
     left: 0;
     margin: 10px;
   }
+=======
+  margin: 0;
+  background: #1B1B21;
+}
+
+.roulette {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+  .wheel img {
+    transition: transform 10s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: transform;
+    border-radius: 50%;
+    box-shadow: 0 0 15px black;
+    width: 100%;
+    max-width: 800px;
+    transform: rotate(0deg);
+  }
+  
+  .arrow {
+    margin-bottom: -15px;
+    z-index: 99;
+    filter: drop-shadow(0 0 8px black)
+  }
+
+
+.spin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 10px;
+}
+>>>>>>> 04f45e3a86202e9a6dc89dda9a7374f93a69c27f

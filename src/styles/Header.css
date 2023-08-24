@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Game.css */
 
 /* Genel stil */
@@ -71,3 +72,39 @@
   .board {
 
   }
+=======
+header {
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+nav {
+    height: 100px;
+}
+ul {
+    color: #1ed760;
+    display: flex;
+    align-items: center;
+}
+
+.list {
+    padding: 10px;
+    margin: 10px;
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+li:hover {
+    color: #f009aedf;
+    cursor: pointer
+}
+
+label {
+    color: white;
+}
+>>>>>>> 04f45e3a86202e9a6dc89dda9a7374f93a69c27f

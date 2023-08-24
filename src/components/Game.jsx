@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import Dice from './Dice';
 import PlayersNames from './PlayersNames';
+<<<<<<< HEAD
 import './Game.css';
 import calculateWinner from './calculateWinner';
+=======
+import '../styles/Game.css';
+>>>>>>> 04f45e3a86202e9a6dc89dda9a7374f93a69c27f
 
 const Game = () => {
   const [player1, setPlayer1] = useState('');

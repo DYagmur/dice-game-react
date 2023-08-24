@@ -1,22 +1,29 @@
-// Game.jsx
 import React, { useState } from 'react';
 import Dice from './Dice';
 import PlayersNames from './PlayersNames';
-import './Game.css';
+import '../styles/Game.css';
 
 const Game = () => {
   const [player1, setPlayer1] = useState('');
   const [player2, setPlayer2] = useState('');
   const [dice1, setDice1] = useState(1);
   const [dice2, setDice2] = useState(1);
-  const [scores, setScores] = useState({ [player1]: 0, [player2]: 0 });
+  const [scores, setScores] = useState({}); // Initial scores state
+
+  // Function to update scores based on winner
+  const updateScores = (winner) => {
+    setScores((prevScores) => ({
+      ...prevScores,
+      [winner]: (prevScores[winner] || 0) + 1, // Increment winner's score
+    }));
+  };
 
   const rollDice = async () => {
     try {
-      const response = await fetch('http://localhost:8000/index', {
+      const response = await fetch('http://localhost:8000/duygu', {
         method: 'GET',
         headers: {
-          task: 'index',
+          task: 'duygu',
         },
       });
 
@@ -32,35 +39,23 @@ const Game = () => {
       setDice1(randomNumber1);
       setDice2(randomNumber2);
 
-      const winner = calculateWinner(randomNumber1, randomNumber2);
+      const winner = data.result; // Assuming the server is sending the winner
 
-      if (winner === player1) {
-        setScores((prevScores) => ({
-          ...prevScores,
-          [player1]: prevScores[player1] + 1,
-        }));
-      } else if (winner === player2) {
-        setScores((prevScores) => ({
-          ...prevScores,
-          [player2]: prevScores[player2] + 1,
-        }));
-      }
+      updateScores(winner); // Update scores based on the winner
     } catch (error) {
       console.error('Error:', error.message);
     }
   };
 
-  const calculateWinner = (num1, num2) => {
-    return num1 > num2 ? player1 : num2 > num1 ? player2 : 'draw';
-  };
-
   const handleStartGame = (name1, name2) => {
     setPlayer1(name1);
     setPlayer2(name2);
+    setScores({ [name1]: 0, [name2]: 0 }); // Initialize scores for players
   };
 
   return (
     <div className="game">
+      <h1 classname="title">🎲 Take a Chance!  🎲</h1>
       <PlayersNames onChange={handleStartGame} />
       <div className="players">
         <p className="player">{player1}</p>
@@ -77,8 +72,8 @@ const Game = () => {
         <div className="board">
           <h2 className="boardi">Score Board</h2>
         </div>
-        <p>{player1} Score: {scores[player1]}</p>
-        <p>{player2} Score: {scores[player2]}</p>
+        <p>{player1} Score: {scores[player1] || 0}</p>
+        <p>{player2} Score: {scores[player2] || 0}</p>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './Footer.css';
 
 export default function Footer() {
@@ -30,3 +31,12 @@ export default function Footer() {
     </div>
   );
 }
+=======
+export function Footer(){
+    return(
+        <footer>
+            
+        </footer>
+    )
+}
+>>>>>>> master

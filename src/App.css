@@ -1,0 +1,59 @@
+/* Tailwind CSS classes */
+.flex {
+  display: flex;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.space-x-4 > * + * {
+  margin-left: 1rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.bg-blue-500 {
+  background-color: #3b82f6;
+}
+.text-white {
+  color: #fff;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.rounded {
+  border-radius: 0.25rem;
+}
+.space-y-2 > * + * {
+  margin-top: 0.5rem;
+}
+/* End Tailwind CSS classes */
+
+/* Additional custom styles */
+.app {
+  padding: 2rem;
+}
+.game {
+  border: 1px solid #ccc;
+  padding: 2rem;
+}
+.player {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.dice-container {
+  margin-top: 1rem;
+}
+.scoreboard {
+  margin-top: 1rem;
+}

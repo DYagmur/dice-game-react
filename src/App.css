@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
 /* Tailwind CSS classes */
+
+
 .flex {
   display: flex;
 }
@@ -44,7 +48,6 @@
   padding: 2rem;
 }
 .game {
-  border: 1px solid #ccc;
   padding: 2rem;
 }
 .player {
@@ -56,4 +59,8 @@
 }
 .scoreboard {
   margin-top: 1rem;
+}
+
+.title {
+  font-size: 64px;
 }

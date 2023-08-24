@@ -1,73 +1,103 @@
 /* Game.css */
 
-/* Genel stil */
+/* General style */
 .game {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-  }
-  
-  .players {
-    display: flex;
-    justify-content:space-around;
-    width: 100%;
-    padding: 1rem;
-    background-color: #333;
-    color: white;
-    font-size: 1.5rem;
-  }
-  
-  .dice-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-  
-  /* Buton stili */
-  .roll-button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 0.5rem 2rem;
-    font-size: 1.2rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .roll-button:hover {
-    background-color: #45a049;
-  }
-  
-  /* Skor tablosu */
-  .scoreboard {
-    border: red 1px solid;
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    margin-top: 5rem;
-    border-radius: 0.25rem;
-    background-color: yellowgreen;
-    box-shadow: 0 2px 4px rgba(29, 172, 72, 0.1);
-    padding: 10%;
-  }
-  
-  .scoreboard p {
-    font-size: 1.2rem;
-  }
-  
-  /* Zar stili */
-  .dice {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 0.25rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin:1rem;
-  }
-  .board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #1a1a1a;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #fff;
+}
 
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  padding-bottom: 10%;
+}
+
+.players {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 1rem;
+  background-color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+.dice-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Button style */
+.roll-button {
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  padding: 0.5rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.roll-button:hover {
+  background-color: #ff5722;
+}
+
+/* Scoreboard style */
+.scoreboard {
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  border-radius: 0.25rem;
+  background-color: #333;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Dice style */
+.dice {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+}
+
+.board {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+
+/* Additional custom styles for gambling effect */
+.dice-gambling {
+  animation: rollDice 0.5s infinite alternate;
+}
+
+@keyframes rollDice {
+  from {
+    transform: translateY(0);
   }
+  to {
+    transform: translateY(-0.5rem);
+  }
+}
+

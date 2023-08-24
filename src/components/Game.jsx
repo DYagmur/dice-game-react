@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Dice from './Dice';
 import PlayersNames from './PlayersNames';
-import './Game.css';
+import '../styles/Game.css';
 
 const Game = () => {
   const [player1, setPlayer1] = useState('');

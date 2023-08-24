@@ -1,4 +1,6 @@
-import './Roulette.css'
+
+import '../styles/Roulette.css'
+
 import {Button} from './Button';
 import {Wheel} from './Wheel';
 import {Input} from "./Input";

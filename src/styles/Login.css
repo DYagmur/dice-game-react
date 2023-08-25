@@ -1,0 +1,12 @@
+#loginBox {
+    margin: 0;
+    background-image: url('../imgs/login-bg.jpg');
+    background-size: cover;
+  }
+
+  #loginBox p {
+    background-color: white;
+    width:380px;
+    font-size: 18px;
+    font-weight: bold;
+  }

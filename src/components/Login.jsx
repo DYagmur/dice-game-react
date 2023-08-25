@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import '../styles/Login.css'
 export function Login () {  
     const [account, setAccount] = useState({
         username: "",

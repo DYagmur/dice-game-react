@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  background: #1B1B21;
+  background-image: url('../imgs/background-img.jpg');
+  background-size: cover;
 }
 
 .roulette {
